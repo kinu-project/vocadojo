@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ボカロ曲イントロクイズ道場 | vocadojo</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+    <header>
+        <h1>ボカロ曲イントロクイズ道場</h1>
+        <div id="user-status-area">
+            <span id="welcome-message"></span>
+            <button id="auth-button"></button>
+            <p>登録曲数: <span id="song-count-display">...</span> 曲</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="auth-form-section" class="hidden">
+            <h2>ログイン / 新規登録</h2>
+            <form id="auth-form">
+                <input type="email" id="auth-email" placeholder="メールアドレス" required>
+                <input type="password" id="auth-password" placeholder="パスワード" required>
+                <button type="submit" id="auth-submit-btn">ログイン</button>
+                <button type="button" id="toggle-register-btn">新規登録に切り替え</button>
+            </form>
+        </section>
+
+        <section id="quiz-section" class="hidden">
+            <h2 id="quiz-title">イントロクイズに挑戦！</h2>
+            <div id="player"></div>
+            <div id="quiz-ui">
+                <p id="timer-display">準備中...</p>
+                <div id="choices-container">
+                    <button class="choice-btn" data-choice-index="0"></button>
+                    <button class="choice-btn" data-choice-index="1"></button>
+                    <button class="choice-btn" data-choice-index="2"></button>
+                    <button class="choice-btn" data-choice-index="3"></button>
+                    <button class="choice-btn" data-choice-index="4"></button>
+                </div>
+                <p id="quiz-message"></p>
+                <button id="next-quiz-btn" class="hidden">次の問題へ</button>
+            </div>
+        </section>
+
+        <section id="user-dashboard" class="hidden">
+            <h2>ユーザーダッシュボード</h2>
+            <button id="start-quiz-btn" disabled>イントロクイズ開始</button>
+            <button id="open-submission-form-btn">曲を道場に追加</button>
+            <a href="admin.html" id="admin-link" class="hidden">管理者パネルへ</a>
+        </section>
+
+        <section id="submission-form-section" class="hidden">
+            <h2>ボカロ曲の投稿</h2>
+            <form id="submission-form">
+                <input type="url" id="submission-url" placeholder="YouTube URL" required>
+                <input type="text" id="submission-title" placeholder="曲名 (正解)" required>
+                <button type="submit">投稿する</button>
+                <p id="submission-message"></p>
+            </form>
+        </section>
+
+        <section id="ranking-section">
+            <h2>ランキング</h2>
+            <ul id="ranking-list"><li>ランキングデータは後で実装します...</li></ul>
+        </section>
+    </main>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+:root {
+    --color-dark: #0A0F18;
+    --color-neon-primary: #00FFC0;
+    --color-neon-secondary: #FF44AA;
+    --color-text-light: #F0F5F9;
+    --color-accent-shadow: rgba(0, 255, 192, 0.5);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-dark);
+    color: var(--color-text-light);
+    min-height: 100vh;
+    padding-top: 50px;
+    background-image: radial-gradient(circle at center, rgba(10, 15, 24, 0.95), var(--color-dark)), 
+                      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><rect fill="%230F1520" width="10" height="10"/><path d="M10 0L0 10zM0 0l10 10z" stroke="%231A2130" stroke-width="0.5"/></svg>');
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--color-neon-primary);
+    text-shadow: 0 0 8px var(--color-accent-shadow);
+    letter-spacing: 5px;
+    border-bottom: 3px solid var(--color-neon-primary);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: var(--color-neon-secondary);
+    border-left: 5px solid var(--color-neon-secondary);
+    padding-left: 10px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+button, input[type="submit"], #auth-submit-btn, .choice-btn {
+    background-color: var(--color-dark);
+    color: var(--color-neon-primary);
+    border: 2px solid var(--color-neon-primary);
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 0 5px var(--color-accent-shadow);
+    margin: 5px;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    box-shadow: none;
+    background-color: #1A2130;
+    color: #444;
+    border-color: #444;
+}
+
+button:hover:not(:disabled), input[type="submit"]:hover, .choice-btn:hover:not(:disabled) {
+    background-color: var(--color-neon-primary);
+    color: var(--color-dark);
+    box-shadow: 0 0 15px var(--color-neon-primary), inset 0 0 5px var(--color-dark);
+}
+
+.choice-btn {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+input[type="email"], input[type="password"], input[type="url"], input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #1A2130;
+    border: 1px solid #444;
+    color: var(--color-text-light);
+}
+
+#quiz-section {
+    padding: 20px;
+    border: 1px solid #2A3140;
+    background-color: rgba(10, 15, 24, 0.7);
+}
+
+#timer-display {
+    font-size: 3rem;
+    text-align: center;
+    color: var(--color-neon-secondary);
+    text-shadow: 0 0 10px rgba(255, 68, 170, 0.7);
+    margin-bottom: 20px;
+}
+
+#quiz-message {
+    text-align: center;
+    font-weight: bold;
+    color: var(--color-neon-primary);
+}
+
+.hidden {
+    display: none !important;
+}
+
+#player {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+}

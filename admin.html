@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理者パネル | vocadojo</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+    <header>
+        <h1>ボカロ曲イントロクイズ道場 管理者パネル</h1>
+        <p><a href="index.html">トップへ戻る</a></p>
+    </header>
+
+    <main>
+        <div id="admin-status">
+            <h2 id="admin-welcome"></h2>
+            <p id="auth-warning"></p>
+        </div>
+
+        <section id="pending-submissions-section" class="hidden">
+            <h2>未承認の投稿リスト</h2>
+            <ul id="submission-list">
+                <li>データ取得中...</li>
+            </ul>
+        </section>
+    </main>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>
