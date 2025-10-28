@@ -212,10 +212,6 @@ async function saveRanking(score, timeTaken) {
     }
 }
 
-// ----------------------------------------------------
-// YouTube Player ポーリング/初期化ロジック
-// ----------------------------------------------------
-
 function initializeYoutubePlayer() {
     if (typeof YT === 'undefined' || !document.getElementById('player')) {
         return false;
@@ -231,7 +227,7 @@ function initializeYoutubePlayer() {
                 'disablekb': 1,
                 'rel': 0,
                 'modestbranding': 1,
-                'origin': window.location.origin
+                'origin': window.location.origin 
             },
             events: { 
                 'onReady': onPlayerReady,
@@ -273,7 +269,6 @@ function loadYoutubeAPI() {
         }
     }, 100);
 }
-// ----------------------------------------------------
 
 function extractYouTubeId(url) {
     const regex = /(?:v=|\/embed\/|\/v\/|\/youtu\.be\/|\/watch\?v=|\/embed\?v=)([^#\&\?]*)/;
