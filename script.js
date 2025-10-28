@@ -212,6 +212,10 @@ async function saveRanking(score, timeTaken) {
     }
 }
 
+// ----------------------------------------------------
+// YouTube Player ポーリング/初期化ロジック
+// ----------------------------------------------------
+
 function initializeYoutubePlayer() {
     if (typeof YT === 'undefined' || !document.getElementById('player')) {
         return false;
@@ -221,13 +225,15 @@ function initializeYoutubePlayer() {
         player = new YT.Player('player', {
             height: '0',
             width: '0',
-            host: 'https://www.youtube-nocookie.com',
+            // 【修正】ホストを通常版に戻し、オリジンをハードコード
+            host: 'https://www.youtube.com',
             playerVars: { 
                 'controls': 0,
                 'disablekb': 1,
                 'rel': 0,
                 'modestbranding': 1,
-                'origin': window.location.origin 
+                // GitHub Pagesのホスト名に置き換え
+                'origin': 'https://kinu-project.github.io' 
             },
             events: { 
                 'onReady': onPlayerReady,
@@ -269,6 +275,7 @@ function loadYoutubeAPI() {
         }
     }, 100);
 }
+// ----------------------------------------------------
 
 function extractYouTubeId(url) {
     const regex = /(?:v=|\/embed\/|\/v\/|\/youtu\.be\/|\/watch\?v=|\/embed\?v=)([^#\&\?]*)/;
@@ -355,6 +362,11 @@ function startNextQuiz() {
     
     const videoId = extractYouTubeId(correctSong.youtube_id);
     if (!player) return;
+    
+    // 再生ブロック回避ロジック: play/pauseを挟む
+    player.playVideo();
+    player.pauseVideo();
+    
     player.loadVideoById({ 'videoId': videoId, 'startSeconds': 0 });
     
     quizStartTime = performance.now();
